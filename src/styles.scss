@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/fonts';
+
+
+@import 'bemify';
+
+
+
+
+
+
+body{
+  padding:0;
+  margin:0;
+  overflow-y: hidden;
+}
+
+@include block('container'){
+  width:300vw;
+  height: 100vh;
+  display: flex; 
+  
+  @include child('inner'){
+    width: 100vw;
+    height:100vh;
+    background: teal;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include modifier('left'){
+      align-items: flex-start;
+      
+    }
+    @include modifier('center'){
+      align-items: center;
+      background: green;
+    }
+    @include modifier('right'){
+      align-items: flex-end;
+    }
+  }
+  
+}
+
+@include block('box'){
+  background: purple;
+  margin: 30px;
+  padding: 20px;
+  @include child('title'){
+    @include montserrat-normal(60px, 30px);
+  }
+}
